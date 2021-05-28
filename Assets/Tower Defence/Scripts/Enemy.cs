@@ -19,9 +19,18 @@ public class Enemy : MonoBehaviour
         // Update is called once per frame
     void Update()
     {
+        //when enemies die
         if (Input.GetKeyDown(KeyCode.E))
         {
             CurrencyHandler.magicMoney += enemyLoot;
+            //Destroy(gameObject);
+        }
+
+        //when enemies make it past gates
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            CurrencyHandler.people -= 1;
+            //Destroy(gameObject);
         }
     }
 }

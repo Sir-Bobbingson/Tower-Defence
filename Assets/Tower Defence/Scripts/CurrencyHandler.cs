@@ -5,18 +5,19 @@ using UnityEngine.UI;
 
 public class CurrencyHandler : MonoBehaviour
 {
+    #region Statics
+
+    public static int money;
+    public static int magicMoney;
+    public static int people = 10;
+
+    #endregion
+
     #region Money Stuff
 
     [Header("Money")]
-    public static int money;
-    public static int magicMoney;
-
     public int currentMoney;
     public int currentMagic;
-
-    public Text moneyText;
-    public Text magicMoneyText;
-
     [SerializeField] private int startMoney = 200;
 
     #endregion
@@ -24,18 +25,28 @@ public class CurrencyHandler : MonoBehaviour
     #region Taxes
 
     [Header("Taxes")]
-    public static int people = 10;
+    public int currentPeople;
     public int taxesPerPerson = 10;
     [SerializeField] private int taxTiming = 60;
 
     #endregion
 
+    #region UI Elements
+
+    [Header("UI Stuff")]
+    public Text moneyText;
+    public Text magicMoneyText;
+    public Text peopleText;
+    public GameObject gameOverPanel;
+
+    #endregion
 
     void Start()
     {
         money = startMoney;
         UpdateMoneyText();
         UpdateMagicMoneyText();
+        UpdatePeopleText();
         StartCoroutine(Taxes());
     }
 
@@ -52,26 +63,32 @@ public class CurrencyHandler : MonoBehaviour
             UpdateMagicMoneyText();
             currentMagic = magicMoney;
         }
+
+        if (people != currentPeople)
+        {
+            UpdatePeopleText();
+            currentPeople = people;
+        }
+
+        if (people == 0)
+        {
+            gameOverPanel.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
     void Upgrade()
     {
-
-
 
     }
 
     void Buy()
     {
 
-
-
     }
 
     void Sell()
     {
-
-
 
     }
 
@@ -85,6 +102,8 @@ public class CurrencyHandler : MonoBehaviour
         }
     }
 
+    #region Updating Text
+
     void UpdateMoneyText()
     {
         moneyText.text = "Money: $" + money;
@@ -94,4 +113,11 @@ public class CurrencyHandler : MonoBehaviour
     {
         magicMoneyText.text = "Magic Stuff: $" + magicMoney;
     }
+
+    void UpdatePeopleText()
+    {
+        peopleText.text = "Citizens: " + people;
+    }
+
+    #endregion
 }

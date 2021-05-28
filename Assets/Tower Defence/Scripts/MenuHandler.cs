@@ -24,5 +24,15 @@ public class MenuHandler : MonoBehaviour
         Screen.fullScreen = isFullScreen;
     }
 
+    public void Play()
+    {
+        Time.timeScale = 1;
+    }
+
+    public static void RestartGame()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
 }
