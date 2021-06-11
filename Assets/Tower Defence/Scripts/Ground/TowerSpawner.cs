@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class TowerSpawner : MonoBehaviour
 {
-    public GameObject towerPrefab;
+    // The Monster that should be spawned
+    public GameObject enemyPrefab;
 
+    // Spawn Delay in seconds
+    public float interval = 3;
 
-    public void SpawnTower()
+    // Use this for initialization
+    void Start()
     {
-        Debug.Log("Spawning Tower Here");
+        InvokeRepeating("SpawnNext", interval, interval);
     }
 
+    void SpawnNext()
+    {
+        Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+
+    }
 }

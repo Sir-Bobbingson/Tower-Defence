@@ -6,23 +6,46 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Agent1 : MonoBehaviour
 {
-  private Waypoint[] waypoints;
+    [SerializeField] private GameObject homeBase;
+ 
+    
     private NavMeshAgent agent;
 
-    private Waypoint RandomWaypoint => waypoints[Random.Range(0, waypoints.Length)];
+    
     // Start is called before the first frame update
     void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
-        waypoints = FindObjectsOfType<Waypoint>();
+        if (homeBase)
+        {
+            agent.SetDestination(homeBase.transform.position);
+        }
+        
+        
     }
+
+    // OnTriggerEnter is called when the Collider other enters the trigger
+    private void OnTriggerEnter(Collider collider)
+    {
+        if(collider.tag == "Home")
+        {
+            //Decrease Health
+            //Destroy Enemy GameObject
+            Destroy(gameObject);
+        }
+
+    }
+
+
+
+
+
 
     // Update is called once per frame
     void Update()
     {
-        if(!agent.pathPending && agent.remainingDistance < 0.1f)
-        {
-            agent.SetDestination(RandomWaypoint.Position);
-        }
+        
+           
+        
     }  
 }
