@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3813816283968482051}
   - component: {fileID: 915557947073992176}
   - component: {fileID: 4701357055252232898}
+  - component: {fileID: 7589682161583321880}
   m_Layer: 0
   m_Name: pCube4
   m_TagString: Untagged
@@ -82,6 +83,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7589682161583321880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686315553022670024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9f303e624a62a04fb98ed6a2dc1856e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  rotationSpeed: 35
 --- !u!1 &3944326875184738202
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,9 +272,8 @@ GameObject:
   - component: {fileID: 3458993888842775948}
   - component: {fileID: 1688920308451290239}
   - component: {fileID: 5304148816621166493}
-  - component: {fileID: 2218523557568336716}
   m_Layer: 0
-  m_Name: Base1
+  m_Name: Base Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -329,17 +343,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2218523557568336716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6343579503124807771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9f303e624a62a04fb98ed6a2dc1856e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 5429957345034734126, guid: 6730591445b6a1b4096b05420a3816ab, type: 3}
-  rotationSpeed: 35
